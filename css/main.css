@@ -26,7 +26,7 @@ main {
 
 header {
     /* Photo by jonathan-daniels-416786-unsplash https://unsplash.com/search/photos/dogs*/
-    /* Replace this with an image that you select */
+    
     background-image: url(../img/jonathan-daniels-416786-unsplash.jpg);
     background-size: 100% auto;
     background-position: center center;
@@ -76,12 +76,50 @@ input {
     color: #D6AD7C;
 }
 
+input[type="range"] {
+    height: 50px;
+    -webkit-appearance: none;
+    outline: none;
+    padding: 0 8px;
+    margin: 8px 0;
+    background-color: #BAA89A;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #4D7443;
+    height: 7px;
+    border-radius: 3px;
+    transition: 0.1s;
+
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /*thumbColor*/
+    background-color: #D6AD7C;
+    width: 40px;
+    /* thumbHeight + (2 x thumbBorderWidth)*/
+    height: 40px;
+    /* thumbHeight + (2 x thumbBorderWidth)*/
+    border-radius: 50%;
+    margin-top: -15px;
+    /* -[thumbHeight + (2 x thumbBorderWidth) - trackHeight]/2*/
+    cursor: pointer;
+    border: 4px solid #fff;
+    /*border-width should be equal to thumbBorderWidth if you want same border width across all browsers and border-color should match the background*/
+    transition: 0.3s;
+}
+
 input#min.price::after,
 input.price#max::after {
     content: "$"attr(data-price);
     display: block;
     margin-top: -1.5rem;
     color: #835A59;
+}
+
+::placeholder {
+    color: #D6AD7C;
 }
 
 .search-btn {
@@ -105,15 +143,8 @@ input.price#max::after {
 
     .form-box.check-in,
     .form-box.check-out,
-    .form-box.min-price{
-        color: #D6AD7C;
-    }
-    .form-box.max-price{
-         color: #D6AD7C;
-    }
-    #min{
-         color: #D6AD7C;
-    }
+    .form-box.min-price,
+    .form-box.max-price,
     .form-box.dogs,
     .form-box.search {
         flex-basis: 50%;
